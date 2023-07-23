@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Pre-upgrade system snapshot
+When = PreTransaction
+Exec = /bin/sh -c "/usr/share/libalpm/scripts/system-snapshot.sh create hook"

@@ -1,0 +1,8 @@
+[Unit]
+Description=Creates btrfs filesystem snapshots of the operating system and configured btrfs partitions.
+
+[Service]
+ExecStart=usr/bin/system-snapshot create force
+
+[Install]
+WantedBy=basic.target

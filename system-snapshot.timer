@@ -1,0 +1,9 @@
+[Unit]
+Description=Creates btrfs filesystem snapshots of the operating system and configured btrfs partitions periodicaly.
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1w
+
+[Install]
+WantedBy=timers.target
