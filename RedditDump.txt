@@ -1,0 +1,156 @@
+This is a quick dump of the Reddit conversation, to both preserve it, and refresh my memory when I inevitably forget what I was doing >.<
+
+
+level 4
+Meatslinger
+·
+1 mo. ago
+And I gotta be honest, it's the most annoying thing in the world.
+
+"Alright, lemme just pack up my laptop now because I have to go to a meeting across town... oh, apparently I'm going to sit here for 30 minutes and be hideously late instead, because when I clicked 'shut down' Windows decided that actually means I didn't have anything I need to do or places I need to be, and this is the PERFECT time to tell me not to move or turn off my computer."
+
+
+20
+
+
+Reply
+Share
+
+
+User avatar
+level 5
+7thCore
+OP
+·
+1 mo. ago
+Honestly that's 50% of the reasons I migrated to Linux about 6 or 7 years ago. No regrets. Even got bootable snapshots working so if an update breaks something and I'm in a hurry I can just boot a snapshot.
+
+
+18
+
+
+Reply
+Share
+
+
+User avatar
+level 6
+Thetippon
+·
+27 days ago
+If you don't mind me asking, what do you use to create the snapshots? That sounds really handy :)
+
+
+3
+
+
+Reply
+Share
+
+
+User avatar
+level 7
+7thCore
+OP
+·
+8 days ago
+·
+edited 8 days ago
+Sorry for the late reply. I honestly don't use timeshift however it is a good tool. I threw together a bash script for it myself and a pacman hook that launches it after downloading updates but before installing them.
+
+Edit: the script keeps only 3 snapshots and deletes the older ones but it is configurable through a conf file. It also has the option to select what btrfs subvolumes to back up.
+
+
+2
+
+
+Reply
+Share
+
+
+User avatar
+level 8
+Thetippon
+·
+8 days ago
+No worries, thanks for replying :)
+
+That's a good idea, doing it as part of the update process. I'll see if I can put something together, thanks :)
+
+
+1
+
+
+Reply
+Share
+
+
+User avatar
+level 9
+7thCore
+OP
+·
+7 days ago
+·
+edited 7 days ago
+No worries. For my script I used systemd-boot because it's easier updating/creating files for bootable entries. The EFI partition is 10GB on my installations because the script also makes backups of the boot images and ucode files. Each has it's own folder and a timestamp. The boot entries in the boot menu also have time stamps. The snapshots have timestamps too so they are distinguishable and the script changes the snapshot's fstab entries so if you boot a snapshot it mounts the snapshots that belong to it (that ware generated on that day)
+
+I also coded the script to support LUKS encryption because I encrypt all my devices, especially laptops.
+
+If you want I can upload it to github for you to check out. I even have a pre-made package for it and all the files to make a package from it. But don't expect much support if you hit a wall, I have little time as is. Just a heads up.
+
+Edit: I made it part of the update process because 80% of the time something broke was because of updates and if I didn't have time to tinker and fix it I could just boot a snapshot in a minute.
+
+
+2
+
+
+Reply
+Share
+
+
+User avatar
+level 10
+Thetippon
+·
+6 days ago
+If you want I can upload it to github for you to check out. I even have a pre-made package for it and all the files to make a package from it. But don't expect much support if you hit a wall, I have little time as is. Just a heads up.
+
+That would be brilliant, thank you :)
+
+I've got a rough idea of what to do, but being able to see a working set up would be very helpful. Just to check, because I'm not sure about Github etiquette, would it be okay to clone the repo and change things as they suit my computer?
+
+
+1
+
+
+Reply
+Share
+
+
+User avatar
+level 11
+7thCore
+OP
+·
+3 days ago
+Sure go ahead.
+
+Here's the GitHub link:
+
+https://github.com/7thCore/Pacman-Hook-System-Snapshot
+
+
+2
+
+
+Reply
+Share
+
+
+User avatar
+level 12
+Thetippon
+·
+7 min. ago
+Fantastic, thank you :)
